@@ -1,0 +1,13 @@
+[Unit]
+Description=Raspberry PI Audi 80B3
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=pi
+ExecStart=/usr/bin/env /home/pi/prj/rpi80b3/start_flask.sh
+
+[Install]
+WantedBy=multi-user.target

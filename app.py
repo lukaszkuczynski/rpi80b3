@@ -47,6 +47,24 @@ def backward(speed=50):
     motor2_b.ChangeDutyCycle(speed)
 
 
+def changeDuty(left_forward, right_forward, left_back, right_back):
+    motor1_f.ChangeDutyCycle(left_forward)
+    motor2_f.ChangeDutyCycle(right_forward)
+    motor1_b.ChangeDutyCycle(left_back)
+    motor2_b.ChangeDutyCycle(right_back)
+
+def left(speed=30):
+    print("turning left, with speed %d"%speed)
+    changeDuty(0,0,speed,0)
+
+def right(speed=30):
+    print("turning right, with speed %d"%speed)
+    changeDuty(0,0,0,speed)
+
+
+def stop_car():
+    print("car to stop!")
+    changeDuty(0,0,0,0)
 
 @app.route('/')
 def main():
@@ -54,22 +72,17 @@ def main():
 
 def change_dir(direction):
     if direction == 'left':
-        pass
-
-#        motor_left.ChangeDutyCycle(100)
-#        motor_right.ChangeDutyCycle(0)
+        left(40)
     elif direction == 'right':
-        pass
-#        motor_right.ChangeDutyCycle(100)
-#        motor_left.ChangeDutyCycle(0)
+        right(40)
     elif direction == 'forward':
-        forward(50)
+        forward(40)
     elif direction == 'backward':
-        backward(50)
+        backward(40)
     else:
         print("dont know that direction %s" % direction)
-    time.sleep(3)
-    init()
+    #time.sleep(3)
+    #init()
     
 
 @app.route("/dir/left")

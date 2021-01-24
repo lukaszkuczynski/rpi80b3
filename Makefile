@@ -6,3 +6,6 @@ motortest:
 
 serve:
 	flask run --host=0.0.0.0
+
+camera:
+	python ./serve_camera.py	

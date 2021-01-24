@@ -55,7 +55,7 @@ def changeDuty(left_forward, right_forward, left_back, right_back):
 
 def left(speed=30):
     print("turning left, with speed %d"%speed)
-    changeDuty(0,0,speed,0)
+    changeDuty(0,speed,speed,0)
 
 def right(speed=30):
     print("turning right, with speed %d"%speed)
@@ -72,13 +72,14 @@ def main():
 
 def change_dir(direction):
     if direction == 'left':
-        left(40)
+        left(20)
+
     elif direction == 'right':
-        right(40)
+        right(20)
     elif direction == 'forward':
-        forward(40)
+        forward(100)
     elif direction == 'backward':
-        backward(40)
+        backward(100)
     else:
         print("dont know that direction %s" % direction)
     #time.sleep(3)

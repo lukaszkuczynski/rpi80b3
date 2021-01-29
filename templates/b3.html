@@ -1,18 +1,70 @@
 <html>
 
 <style>
-	a { border: 2px solid black; font-size: 30px; padding: 5px }
+    a {
+        font-size: 30px;
+        padding: 5px
+    }
+
+    div.row {
+        height: 50px
+    }
+
+    div.col {
+        width: 130px;
+        display: table-cell;
+    }
+
+    #steering_pad {
+        width: 400px;
+        height: 300px;
+        background-color: grey;
+    }
 </style>
 
 
-	<body>
 
-		
-		<a href="/dir/left">LEFT</a>
-		<a href="/dir/forward">AHEAD!</a>
-		<a href="/dir/right">RIGHT</a>
-		<a href="/dir/backward">BACK..</a>
-		<a href="/dir/stop">STOP</a>
-	</body>
+
+<body>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col"><a id="forward_link" href="/dir/forward">AHEAD</a></div>
+        <div class="col"></div>
+    </div>
+    <div class="row">
+        <div class="col"><a id="left_link" href="/dir/left">LEFT</a></div>
+        <div class="col"><a id="stop_link" href="/dir/stop">STOP!</a></div>
+        <div class="col"><a id="right_link" href="/dir/right">RIGHT</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col"><a id="back_link" href="/dir/backward">BACK</a></div>
+        <div class="col"></div>
+    </div>
+
+    <p id="steering_pad">
+
+    </p>
+
+
+</body>
+
+<script>
+    const steering_pad = document.getElementById('steering_pad');
+    steering_pad.focus();
+    document.addEventListener('keyup', logKey);
+
+    function logKey(e) {
+        steering_pad.textContent += ` ${e.code}`;
+        switch (e.code) {
+            case 'ArrowUp': document.getElementById("forward_link").click();
+            case 'ArrowDown': document.getElementById("back_link").click();
+            case 'ArrowRight': document.getElementById("right_link").click();
+            case 'ArrowLeft': document.getElementById("left_link").click();
+            case 'Space': document.getElementById("stop_link").click();
+        }
+    }
+</script>
+
 </html>
-

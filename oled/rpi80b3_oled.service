@@ -1,0 +1,14 @@
+[Unit]
+Description=rpi80b3_oled
+After=syslog.target network.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/prj/rpi80b3/oled/venv
+ExecStart=/home/pi/prj/rpi80b3/oled/venv/bin/python /home/pi/prj/rpi80b3/oled/oled_status_live.py --serve-in-foreground
+Restart=on-abort
+EnvironmentFile=/etc/systemd/rpi80b3_oled.env
+
+[Install]
+WantedBy=multi-user.target

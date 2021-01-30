@@ -59,7 +59,7 @@ def left(speed=30):
 
 def right(speed=30):
     print("turning right, with speed %d"%speed)
-    changeDuty(0,0,0,speed)
+    changeDuty(speed,0,0,speed)
 
 
 def stop_car():
@@ -72,14 +72,13 @@ def main():
 
 def change_dir(direction):
     if direction == 'left':
-        left(20)
-
+        left(25)
     elif direction == 'right':
-        right(20)
+        right(25)
     elif direction == 'forward':
-        forward(100)
+        forward(40)
     elif direction == 'backward':
-        backward(100)
+        backward(30)
     else:
         print("dont know that direction %s" % direction)
     #time.sleep(3)

@@ -58,12 +58,13 @@
     function logKey(e) {
         steering_pad.textContent += ` ${e.code}`;
         switch (e.code) {
-            case 'ArrowUp': document.getElementById("forward_link").click();
-            case 'ArrowDown': document.getElementById("back_link").click();
-            case 'ArrowRight': document.getElementById("right_link").click();
-            case 'ArrowLeft': document.getElementById("left_link").click();
-            case 'Space': document.getElementById("stop_link").click();
+            case 'ArrowUp': document.getElementById("forward_link").click(); break;
+            case 'ArrowDown': document.getElementById("back_link").click(); break;
+            case 'ArrowRight': document.getElementById("right_link").click(); break;
+            case 'ArrowLeft': document.getElementById("left_link").click(); break;
+            case 'Space': document.getElementById("stop_link").click(); break;
         }
+        
     }
 </script>
 
